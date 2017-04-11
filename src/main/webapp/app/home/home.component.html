@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title">Users Registered<small><a class="sentry-link float-right" routerLink="/user-management">User Management</a></small></h4>
+                    <h4 class="card-title"><i class="fa fa-user-o" aria-hidden="true"></i> Users Registered<small><a class="sentry-link float-right" routerLink="/user-management">User Management</a></small></h4>
                     <p *ngFor="let user of users" class="card-text">
                         <strong>{{user.login}}</strong> 
                         <span *ngIf="user.activated" class="activated"></span>
@@ -31,7 +31,7 @@
         <div class="col-md-6">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title">Expenses</h4>
+                    <h4 class="card-title"><i class="fa fa-credit-card" aria-hidden="true"></i> Expenses</h4>
                     <p class="card-text">Information about your latest expenses</p>         
                 </div>         
             </div>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title">E-mail messages</h4>         
+                    <h4 class="card-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail messages</h4>         
                     <p class="card-text">Here there will be a Gmail integration so i can have a quick check in the latest e-mails of my inbox</p>         
                 </div>
             </div>
@@ -47,7 +47,7 @@
         <div class="col-md-6">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title">Scheduling</h4>
+                    <h4 class="card-title"><i class="fa fa-book" aria-hidden="true"></i> Scheduling</h4>
                     <p class="card-text">Here there will be some scheduling information provided by me through the Web app or mobile app</p>         
                 </div>         
             </div>
