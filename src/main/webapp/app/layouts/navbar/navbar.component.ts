@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-
+import { EventManager } from 'ng-jhipster';
 import { ProfileService } from '../profiles/profile.service'; // FIXME barrel doesn't work here
 import { Principal, LoginModalService, LoginService, Account } from '../../shared';
 
@@ -29,22 +29,29 @@ export class NavbarComponent implements OnInit {
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
-        private router: Router
+        private router: Router,
+        private eventManager: EventManager
     ) {
         this.version = DEBUG_INFO_ENABLED ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
     }
 
     ngOnInit() {
-        this.principal.identity().then((account) => {
-            this.account = account;
-        });
         this.profileService.getProfileInfo().subscribe(profileInfo => {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
+        this.registerSettingsChanged();
+        this.getUserAccount();
     }
 
+    registerSettingsChanged() {
+        this.eventManager.subscribe('settingsChangesSaved', (message) => {
+            this.principal.identity().then((account) => {
+                this.account = account;
+            });
+        });
+    }
 
     collapseNavbar() {
         this.isNavbarCollapsed = true;
@@ -68,6 +75,11 @@ export class NavbarComponent implements OnInit {
         this.isNavbarCollapsed = !this.isNavbarCollapsed;
     }
 
+    getUserAccount() {
+        this.principal.identity().then((account) => {
+            this.account = account;
+        });
+    }
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
     }

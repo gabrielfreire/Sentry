@@ -20,11 +20,13 @@
             <div class="card sentry-card">
                 <div class="card-block">
                     <h4 class="card-title"><i class="fa fa-user-o" aria-hidden="true"></i> Users Registered<small><a class="sentry-link float-right" routerLink="/user-management">User Management</a></small></h4>
-                    <p *ngFor="let user of users" class="card-text">
-                        <strong>{{user.login}}</strong> 
-                        <span *ngIf="user.activated" class="activated"></span>
-                        <span *ngIf="!user.activated" class="deactivated"></span>  
-                    </p>        
+                    <div *ngIf="users">
+                        <p *ngFor="let user of users" class="card-text">
+                            <strong>{{user.login}}</strong> 
+                            <span *ngIf="user.activated" class="activated"></span>
+                            <span *ngIf="!user.activated" class="deactivated"></span>  
+                        </p>
+                    </div>        
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li *ngSwitchCase="true">
-                <span *ngIf="account" class="navbar-text">Hi {{account.login}}!</span>
+                <span *ngIf="account" class="navbar-text">Hi {{account.firstName}}!</span>
             </li>
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">

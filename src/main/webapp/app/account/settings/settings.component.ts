@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { EventManager} from 'ng-jhipster';
 import { Principal, AccountService } from '../../shared';
 
 @Component({
@@ -14,7 +14,8 @@ export class SettingsComponent implements OnInit {
 
     constructor(
         private account: AccountService,
-        private principal: Principal
+        private principal: Principal,
+        private eventManager: EventManager
     ) {
         }
 
@@ -30,6 +31,10 @@ export class SettingsComponent implements OnInit {
             this.success = 'OK';
             this.principal.identity(true).then((account) => {
                 this.settingsAccount = this.copyAccount(account);
+            });
+            this.eventManager.broadcast({
+                name: 'settingsChangesSaved',
+                content: 'Settings were changed'
             });
         }, () => {
             this.success = null;

@@ -5,14 +5,7 @@ Main page styles
 	margin: 10px;
     background-color: #353d47;
 }
-.sentry-link{
-	text-decoration: none;
-    color: #e67f7f;
-    font-size: 14px;
-}
-.sentry-link:hover{
-	color: #e7afaf;
-}
+
 .activated{
 	display: inline-block;
 	background: url("../../content/images/check.png") no-repeat center;

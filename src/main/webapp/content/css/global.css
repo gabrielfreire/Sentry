@@ -95,7 +95,15 @@ a:hover {
 .hand {
     cursor: pointer;
 }
-
+.sentry-link{
+    text-decoration: none;
+    color: #e67f7f;
+    font-size: 14px;
+}
+.sentry-link:hover{
+    color: #e7afaf;
+    text-decoration: none;
+}
 /* ==========================================================================
 Custom alerts for notification
 ========================================================================== */

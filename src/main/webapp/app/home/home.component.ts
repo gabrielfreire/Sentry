@@ -26,10 +26,9 @@ export class HomeComponent implements OnInit {
         }
 
     ngOnInit() {
-        this.principal.identity().then((account) => {
-            this.account = account;
-        });
+        this.getAccount();
         this.registerAuthenticationSuccess();
+        this.getUsers();
     }
 
     registerAuthenticationSuccess() {
@@ -52,6 +51,12 @@ export class HomeComponent implements OnInit {
     getUsers() {
         this.userService.query().subscribe((users) => {
             this.users = users.json();
+        });
+    }
+
+    getAccount() {
+        this.principal.identity().then((account) => {
+            this.account = account;
         });
     }
 }
