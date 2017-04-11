@@ -1,5 +1,7 @@
 # Sentry
-This application was generated using JHipster 4.2.0, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.2.0](https://jhipster.github.io/documentation-archive/v4.2.0).
+Angular 2 and Springboot Web Application + Mobile Application in development (Ionic 2). This is intended to be my own personal management tool but it would serve well anyone who wishes to manage their personal life.
+
+No link yet.
 
 ## Development
 
@@ -50,9 +52,7 @@ Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor
 @import '~leaflet/dist/leaflet.css';
 ~~~
 
-Note: there are still few other things remaining to do for Leaflet that we won't detail here.
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
+Note: there are still few other things remaining to do for Leaflet that i won't detail here.
 
 ### Using angular-cli
 
@@ -80,8 +80,6 @@ To ensure everything worked, run:
     java -jar target/*.war
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
 
 ## Testing
 
@@ -125,24 +123,3 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 ## Continuous Integration (optional)
 
 To configure CI for your project, run the ci-cd sub-generator (`yo jhipster:ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[JHipster Homepage and latest documentation]: https://jhipster.github.io
-[JHipster 4.2.0 archive]: https://jhipster.github.io/documentation-archive/v4.2.0
-
-[Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.2.0/development/
-[Using Docker and Docker-Compose]: https://jhipster.github.io/documentation-archive/v4.2.0/docker-compose
-[Using JHipster in production]: https://jhipster.github.io/documentation-archive/v4.2.0/production/
-[Running tests page]: https://jhipster.github.io/documentation-archive/v4.2.0/running-tests/
-[Setting up Continuous Integration]: https://jhipster.github.io/documentation-archive/v4.2.0/setting-up-ci/
-
-
-[Node.js]: https://nodejs.org/
-[Yarn]: https://yarnpkg.org/
-[Webpack]: https://webpack.github.io/
-[Angular CLI]: https://cli.angular.io/
-[BrowserSync]: http://www.browsersync.io/
-[Karma]: http://karma-runner.github.io/
-[Jasmine]: http://jasmine.github.io/2.0/introduction.html
-[Protractor]: https://angular.github.io/protractor/
-[Leaflet]: http://leafletjs.com/
-[DefinitelyTyped]: http://definitelytyped.org/
