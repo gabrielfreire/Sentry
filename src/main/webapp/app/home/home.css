@@ -1,0 +1,60 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.sentry-card{
+	margin: 10px;
+    background-color: #353d47;
+}
+.sentry-link{
+	text-decoration: none;
+    color: #e67f7f;
+    font-size: 14px;
+}
+.sentry-link:hover{
+	color: #e7afaf;
+}
+.activated{
+	display: inline-block;
+	background: url("../../content/images/check.png") no-repeat center;
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx){
+	.activated{
+		display: inline-block;
+		background: url("../../content/images/check.png") no-repeat center;
+		background-size: contain;
+		width: 20px;
+		height: 20px;
+	}
+}
+.deactivated{
+	display: inline-block;
+	background: url("../../content/images/uncheck.png") no-repeat center;
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx){
+	.deactivated{
+		display: inline-block;
+		background: url("../../content/images/uncheck.png") no-repeat center;
+		background-size: contain;
+		width: 20px;
+		height: 20px;
+	}
+}
+
