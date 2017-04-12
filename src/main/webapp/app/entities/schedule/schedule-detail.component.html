@@ -1,5 +1,5 @@
 
-<div *ngIf="schedule">
+<div class="container" *ngIf="schedule">
     <h2><span>Schedule</span> {{schedule.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -10,7 +10,7 @@
         </dd>
         <dt><span>Event Date</span></dt>
         <dd>
-            <span>{{schedule.eventDate | date:'mediumDate'}}</span>
+            <span>{{schedule.eventDate | date:'dd/MM/yyyy'}}</span>
         </dd>
         <dt><span>Location</span></dt>
         <dd>

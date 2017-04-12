@@ -31,7 +31,7 @@
                 <td><a [routerLink]="['../expense', expense.id ]">{{expense.id}}</a></td>
                 <td>{{expense.title}}</td>
                 <td>{{expense.description}}</td>
-                <td>{{expense.amount}}</td>
+                <td>{{expense.amount | currency: 'EUR':true}}</td>
                 <td>{{expense.type}}</td>
                 <td>{{expense.date | date:'dd/MM/yyyy'}}</td>
                 <td>

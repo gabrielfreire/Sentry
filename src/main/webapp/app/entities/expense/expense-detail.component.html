@@ -1,5 +1,5 @@
 
-<div *ngIf="expense">
+<div class="container" *ngIf="expense">
     <h2><span>Expense</span> {{expense.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -14,7 +14,7 @@
         </dd>
         <dt><span>Amount</span></dt>
         <dd>
-            <span>{{expense.amount}}</span>
+            <span>{{expense.amount | currency: 'EUR':true}}</span>
         </dd>
         <dt><span>Type</span></dt>
         <dd>
@@ -22,7 +22,7 @@
         </dd>
         <dt><span>Date</span></dt>
         <dd>
-            <span>{{expense.date | date:'mediumDate'}}</span>
+            <span>{{expense.date | date:'dd/MM/yyyy'}}</span>
         </dd>
         <dt><span>User</span></dt>
         <dd>
