@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager} from 'ng-jhipster';
 import { ScheduleService } from '../entities/schedule/';
+import { ExpenseService } from '../entities/expense/';
 
 import { Account, LoginModalService, Principal, UserService } from '../shared';
 
@@ -15,8 +16,9 @@ import { Account, LoginModalService, Principal, UserService } from '../shared';
 })
 export class HomeComponent implements OnInit {
     account: Account;
-    users: any;
+    users: any[];
     schedules: any[];
+    expenses: any[];
     modalRef: NgbModalRef;
 
     constructor(
@@ -24,7 +26,8 @@ export class HomeComponent implements OnInit {
         private loginModalService: LoginModalService,
         private eventManager: EventManager,
         private userService: UserService,
-        private scheduleService: ScheduleService
+        private scheduleService: ScheduleService,
+        private expenseService: ExpenseService
     ) {
         }
 
@@ -32,8 +35,10 @@ export class HomeComponent implements OnInit {
         this.getAccount();
         this.getUsers();
         this.getSchedules();
+        this.getExpenses();
         this.registerAuthenticationSuccess();
         this.registerScheduleListModification();
+        this.registerExpenseListModification();
     }
 
     registerAuthenticationSuccess() {
@@ -50,6 +55,11 @@ export class HomeComponent implements OnInit {
             this.getSchedules();
         });
     }
+    registerExpenseListModification() {
+        this.eventManager.subscribe('expenseListModification', (message) => {
+            this.getExpenses();
+        });
+    }
 
     isAuthenticated() {
         return this.principal.isAuthenticated();
@@ -59,11 +69,15 @@ export class HomeComponent implements OnInit {
         this.modalRef = this.loginModalService.open();
     }
 
+    getExpenses() {
+        this.expenseService.query().subscribe((expenses) => {
+            this.expenses = expenses.json();
+        });
+    }
+
     getSchedules() {
         this.scheduleService.query().subscribe((shedules) => {
             this.schedules = shedules.json();
-            console.log(this.schedules);
-            console.log(this.schedules.length);
         });
     }
 

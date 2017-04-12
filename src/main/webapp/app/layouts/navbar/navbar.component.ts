@@ -41,15 +41,20 @@ export class NavbarComponent implements OnInit {
             this.inProduction = profileInfo.inProduction;
             this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
-        this.registerSettingsChanged();
         this.getUserAccount();
+        this.registerSettingsChanged();
+        this.registerSuccessfulLogin();
     }
 
     registerSettingsChanged() {
         this.eventManager.subscribe('settingsChangesSaved', (message) => {
-            this.principal.identity().then((account) => {
-                this.account = account;
-            });
+            this.getUserAccount();
+        });
+    }
+
+    registerSuccessfulLogin() {
+        this.eventManager.subscribe('authenticationSuccess', (message) => {
+            this.getUserAccount();
         });
     }
 

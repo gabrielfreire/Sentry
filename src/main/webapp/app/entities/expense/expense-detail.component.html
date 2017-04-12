@@ -1,0 +1,45 @@
+
+<div *ngIf="expense">
+    <h2><span>Expense</span> {{expense.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{expense.title}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{expense.description}}</span>
+        </dd>
+        <dt><span>Amount</span></dt>
+        <dd>
+            <span>{{expense.amount}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{expense.type}}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{expense.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{expense.userLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'expense/'+ expense.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

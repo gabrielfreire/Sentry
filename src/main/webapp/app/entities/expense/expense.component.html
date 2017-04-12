@@ -1,10 +1,10 @@
 <div class="container">
     <h2>
-        <span>Schedules</span>
-        <button class="btn btn-primary float-right create-schedule" [routerLink]="['/', { outlets: { popup: ['schedule-new'] } }]">
+        <span>Expenses</span>
+        <button class="btn btn-primary float-right create-expense" [routerLink]="['/', { outlets: { popup: ['expense-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >
-            Create new Schedule
+            Create new Expense
             </span>
         </button>
     </h2>
@@ -12,42 +12,48 @@
     <div class="row">
     </div>
     <br/>
-    <div class="table-responsive" *ngIf="schedules">
+    <div class="table-responsive" *ngIf="expenses">
         <table class="table table-striped">
             <thead>
             <tr>
             <th><span>ID</span></th>
             <th><span>Title</span></th>
             <th><span>Description</span></th>
-            <th><span>Location</span></th>
-            <th><span>Event Date</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Type</span></th>
+            <th><span>Date</span></th>
+            <th><span>User</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let schedule of schedules ;trackBy: trackId">
-                <td><a [routerLink]="['../schedule', schedule.id ]">{{schedule.id}}</a></td>
-                <td>{{schedule.title}}</td>
-                <td>{{schedule.description}}</td>
-                <td>{{schedule.location}}</td>
-                <td>{{schedule.eventDate | date:'dd/MM/yyyy'}}</td>
+            <tr *ngFor="let expense of expenses ;trackBy: trackId">
+                <td><a [routerLink]="['../expense', expense.id ]">{{expense.id}}</a></td>
+                <td>{{expense.title}}</td>
+                <td>{{expense.description}}</td>
+                <td>{{expense.amount}}</td>
+                <td>{{expense.type}}</td>
+                <td>{{expense.date | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    {{expense.userLogin}}
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['../schedule', schedule.id ]"
+                                [routerLink]="['../expense', expense.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
                             <span class="hidden-md-down">View</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'schedule/'+ schedule.id + '/edit'} }]"
+                                [routerLink]="['/', { outlets: { popup: 'expense/'+ expense.id + '/edit'} }]"
                                 replaceUrl="true"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="hidden-md-down">Edit</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'schedule/'+ schedule.id + '/delete'} }]"
+                                [routerLink]="['/', { outlets: { popup: 'expense/'+ expense.id + '/delete'} }]"
                                 replaceUrl="true"
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>

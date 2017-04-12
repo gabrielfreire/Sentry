@@ -29,11 +29,12 @@
                         </small>
                     </h4>
                     <div *ngIf="users">
-                        <p *ngFor="let user of users" class="card-text">
+                        <span *ngFor="let user of users" class="card-text">
                             <strong>{{user.login}}</strong> 
                             <span *ngIf="user.activated" class="activated float-right"></span>
                             <span *ngIf="!user.activated" class="deactivated float-right"></span>  
-                        </p>
+                            <hr>
+                        </span>
                     </div>        
                 </div>
             </div>
@@ -41,16 +42,32 @@
         <div class="col-md-6 col-sm-12">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title"><i class="fa fa-credit-card" aria-hidden="true"></i> Expenses</h4>
-                    <p class="card-text">Information about your latest expenses</p>         
-                </div>         
+                    <h4 class="card-title">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i> Expenses
+                        <span class="badge badge-success">{{expenses?.length}}</span>
+                        <small>
+                            <a class="sentry-edit-link float-right" routerLink="/expense">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                        </small>
+                    </h4>
+                    <div *ngIf="expenses">
+                        <span *ngFor="let expense of expenses" class="card-text">
+                            {{expense.title}} - {{expense.amount | currency}}
+                            <span class="float-right">{{expense.date | date: 'dd/MM/yyyy'}}</span>
+                            <hr>
+                        </span>         
+                    </div>
+                </div>       
             </div>
         </div>
         <div class="col-md-6 col-sm-12">
             <div class="card sentry-card">
                 <div class="card-block">
                     <h4 class="card-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail messages</h4>         
-                    <p class="card-text">Here there will be a Gmail integration so i can have a quick check in the latest e-mails of my inbox</p>         
+                    <span class="card-text">
+                        Here there will be a Gmail integration so i can have a quick check in the latest e-mails of my inbox
+                    </span>         
                 </div>
             </div>
         </div>
@@ -67,7 +84,8 @@
                         </small>
                     </h4>
                     <div *ngIf="schedules">
-                        <span *ngFor="let schedule of schedules" class="card-text">{{schedule.title}} - {{schedule.eventDate | date}} at {{schedule.location}}
+                        <span *ngFor="let schedule of schedules" class="card-text">
+                            {{schedule.title}} - {{schedule.eventDate | date: 'dd/MM/yyyy'}} at {{schedule.location}}
                             <hr>
                         </span>
 
