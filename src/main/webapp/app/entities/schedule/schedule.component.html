@@ -1,0 +1,62 @@
+<div>
+    <h2>
+        <span>Schedules</span>
+        <button class="btn btn-primary float-right create-schedule" [routerLink]="['/', { outlets: { popup: ['schedule-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Schedule
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="schedules">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Title</span></th>
+            <th><span>Description</span></th>
+            <th><span>Location</span></th>
+            <th><span>Event Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let schedule of schedules ;trackBy: trackId">
+                <td><a [routerLink]="['../schedule', schedule.id ]">{{schedule.id}}</a></td>
+                <td>{{schedule.title}}</td>
+                <td>{{schedule.description}}</td>
+                <td>{{schedule.location}}</td>
+                <td>{{schedule.eventDate | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../schedule', schedule.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'schedule/'+ schedule.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'schedule/'+ schedule.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

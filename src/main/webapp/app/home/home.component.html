@@ -19,7 +19,15 @@
         <div class="col-md-6 col-sm-12">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title"><i class="fa fa-user-o" aria-hidden="true"></i> Users Registered<small><a class="sentry-link float-right" routerLink="/user-management">User Management</a></small></h4>
+                    <h4 class="card-title">
+                        <i class="fa fa-user-o" aria-hidden="true"></i> Users Registered 
+                        <span class="badge badge-success">{{users?.length}}</span>
+                        <small>
+                            <a class="sentry-edit-link float-right" routerLink="/user-management">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                        </small>
+                    </h4>
                     <div *ngIf="users">
                         <p *ngFor="let user of users" class="card-text">
                             <strong>{{user.login}}</strong> 
@@ -49,8 +57,21 @@
         <div class="col-md-6 col-sm-12">
             <div class="card sentry-card">
                 <div class="card-block">
-                    <h4 class="card-title"><i class="fa fa-book" aria-hidden="true"></i> Scheduling</h4>
-                    <p class="card-text">Here there will be some scheduling information provided by me through the Web app or mobile app</p>         
+                    <h4 class="card-title">
+                        <i class="fa fa-book" aria-hidden="true"></i> Scheduling 
+                        <span class="badge badge-success">{{schedules?.length}}</span>
+                        <small>
+                            <a class="sentry-edit-link float-right" routerLink="/schedule">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                        </small>
+                    </h4>
+                    <div *ngIf="schedules">
+                        <span *ngFor="let schedule of schedules" class="card-text">{{schedule.title}} - {{schedule.eventDate | date}} at {{schedule.location}}
+                            <hr>
+                        </span>
+
+                    </div>
                 </div>         
             </div>
         </div>

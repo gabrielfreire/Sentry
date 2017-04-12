@@ -95,18 +95,7 @@ a:hover {
 .hand {
     cursor: pointer;
 }
-.sentry-link{
-    text-decoration: none;
-    color: #e67f7f;
-    font-size: 14px;
-}
-.sentry-link:hover{
-    color: #e7afaf;
-    text-decoration: none;
-}
-.sentry-main{
-    min-height: 545px;
-}
+
 /* ==========================================================================
 Custom alerts for notification
 ========================================================================== */
@@ -216,3 +205,25 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+/* ==========================================================================
+custom ui
+========================================================================== */
+.sentry-link{
+    text-decoration: none;
+    color: #e67f7f;
+    font-size: 14px;
+}
+.sentry-link:hover{
+    color: #e7afaf;
+    text-decoration: none;
+}
+.sentry-main{
+    min-height: 545px;
+}
+.sentry-edit-link{
+    color: #bbbbbb;
+    vertical-align: middle;
+}
+.sentry-edit-link:hover {
+    color: #dddddd;
+}
