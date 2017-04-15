@@ -16,9 +16,9 @@ import { Account, LoginModalService, Principal, UserService } from '../shared';
 })
 export class HomeComponent implements OnInit {
     account: Account;
-    users: any[];
-    schedules: any[];
-    expenses: any[];
+    users: Array<any>;
+    schedules: Array<any>;
+    expenses: Array<any>;
     modalRef: NgbModalRef;
 
     constructor(
