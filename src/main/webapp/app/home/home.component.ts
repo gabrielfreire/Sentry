@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { EventManager} from 'ng-jhipster';
+import { EventManager } from 'ng-jhipster';
 import { ScheduleService } from '../entities/schedule/';
 import { ExpenseService } from '../entities/expense/';
 
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     users: Array<any>;
     schedules: Array<any>;
     expenses: Array<any>;
+    totalExpenses = 0;
     modalRef: NgbModalRef;
 
     constructor(
@@ -28,8 +29,7 @@ export class HomeComponent implements OnInit {
         private userService: UserService,
         private scheduleService: ScheduleService,
         private expenseService: ExpenseService
-    ) {
-        }
+    ) {}
 
     ngOnInit() {
         this.getAccount();
@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
                 this.account = account;
             });
             this.getUsers();
+            this.getSchedules();
+            this.getExpenses();
         });
     }
 
@@ -72,6 +74,10 @@ export class HomeComponent implements OnInit {
     getExpenses() {
         this.expenseService.query().subscribe((expenses) => {
             this.expenses = expenses.json();
+            // get the total
+            for (let expense of this.expenses) {
+                this.totalExpenses += expense.amount;
+            }
         });
     }
 

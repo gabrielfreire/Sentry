@@ -1,19 +1,26 @@
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
-body{
+
+body {
     font-weight: 300;
     color: #bbbbbb;
     background-color: #1d1d1d;
     height: 100%;
 }
-h1, h2, h3, h4 {
+
+h1,
+h2,
+h3,
+h4 {
     font-weight: 300;
 }
+
 
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
+
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -21,18 +28,23 @@ Browser Upgrade Prompt
     padding: 0.2em 0;
 }
 
+
 /* ==========================================================================
 Generic styles
 ========================================================================== */
 
+
 /* Error highlight on input fields */
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid green;
+
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid green;
 }
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid red;
+.ng-invalid:not(form) {
+    border-left: 5px solid red;
 }
+
 
 /* other generic styles */
 
@@ -61,7 +73,7 @@ Generic styles
 
 .break {
     white-space: normal;
-    word-break:break-all;
+    word-break: break-all;
 }
 
 .readonly {
@@ -69,15 +81,18 @@ Generic styles
     opacity: 1;
 }
 
+
 /*FIXME this is to support grids in table class; */
-table td[class*=col-], table th[class*=col-] {
+
+table td[class*=col-],
+table th[class*=col-] {
     position: static;
     display: table-cell;
     float: none;
 }
 
 .footer {
-    border-top: 1px solid rgba(0,0,0,.125);
+    border-top: 1px solid rgba(0, 0, 0, .125);
     background-color: #353d47;
     padding-top: 50pt;
     text-align: center;
@@ -85,24 +100,29 @@ table td[class*=col-], table th[class*=col-] {
     width: 100%;
 }
 
+
 /* ==========================================================================
 make sure browsers use the pointer cursor for anchors, even with no href
 ========================================================================== */
+
 a:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .hand {
     cursor: pointer;
 }
 
+
 /* ==========================================================================
 Custom alerts for notification
 ========================================================================== */
-.alerts .alert{
+
+.alerts .alert {
     text-overflow: ellipsis;
 }
-.alert pre{
+
+.alert pre {
     background: none;
     border: none;
     font: inherit;
@@ -142,88 +162,191 @@ Custom alerts for notification
     }
 }
 
+
 /* ==========================================================================
 entity tables helpers
 ========================================================================== */
+
+
 /* Remove Bootstrap padding from the element
    http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
-.no-padding-left { padding-left: 0 !important; }
-.no-padding-right { padding-right: 0 !important; }
-.no-padding-top { padding-top: 0 !important; }
-.no-padding-bottom { padding-bottom: 0 !important; }
-.no-padding { padding: 0 !important; }
+
+.no-padding-left {
+    padding-left: 0 !important;
+}
+
+.no-padding-right {
+    padding-right: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
 
 /* bootstrap 3 input-group 100% width
    http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
-.width-min { width: 1% !important; }
+
+.width-min {
+    width: 1% !important;
+}
+
 
 /* Makes toolbar not wrap on smaller screens
  http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
+
 .flex-btn-group-container {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
-   -webkit-justify-content: flex-end;
-   justify-content: flex-end;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
 }
+
 
 /* ==========================================================================
 entity detail page css
 ========================================================================== */
-.row.jh-entity-details > dd {
+
+.row.jh-entity-details>dd {
     margin-bottom: 15px;
 }
 
 @media screen and (min-width: 768px) {
-    .row.jh-entity-details > dt {
+    .row.jh-entity-details>dt {
         margin-bottom: 15px;
     }
-
-    .row.jh-entity-details > dd {
+    .row.jh-entity-details>dd {
         border-bottom: 1px solid #eee;
         padding-left: 180px;
         margin-left: 0;
     }
 }
 
+
 /* ==========================================================================
 ui bootstrap tweaks
 ========================================================================== */
-.nav, .pagination, .carousel, .panel-title a {
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
     cursor: pointer;
 }
 
-.datetime-picker-dropdown > li.date-picker-menu div > table .btn-default,
-.uib-datepicker-popup  > li > div.uib-datepicker > table .btn-default {
+.datetime-picker-dropdown>li.date-picker-menu div>table .btn-default,
+.uib-datepicker-popup>li>div.uib-datepicker>table .btn-default {
     border: 0;
 }
 
-.datetime-picker-dropdown > li.date-picker-menu div > table:focus,
-.uib-datepicker-popup  > li > div.uib-datepicker > table:focus {
+.datetime-picker-dropdown>li.date-picker-menu div>table:focus,
+.uib-datepicker-popup>li>div.uib-datepicker>table:focus {
     outline: none;
 }
 
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+    list-style: none;
+    background-color: #adff2f;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    transition: 0.1s;
+    /* border: 1px solid rgba(0,0,0,.15); */
+    /* border-radius: .25rem; */
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+    transition: 0.1s;
+}
+
+
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+
 /* ==========================================================================
 custom ui
 ========================================================================== */
-.sentry-link{
+
+.sentry-link {
     text-decoration: none;
     color: #e67f7f;
     font-size: 14px;
 }
-.sentry-link:hover{
+
+.sentry-link:hover {
     color: #e7afaf;
     text-decoration: none;
 }
-.sentry-main{
+
+.sentry-main {
     min-height: 545px;
 }
-.sentry-edit-link{
+
+.sentry-edit-link {
     color: #bbbbbb;
     vertical-align: middle;
 }
+
 .sentry-edit-link:hover {
     color: #dddddd;
+}
+
+.sentry-table {
+    background-color: #e4e9ef;
+    /* padding: 5px; */
+    border-radius: 5px;
+    color: black;
+}
+
+.sentry-table tbody {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.sentry-nav-link {
+    font-weight: 600;
+    font-size: 22px;
+    transition: .1s;
+}
+
+.sentry-nav-link:hover {
+    background-color: rgb(92, 184, 92);
+}
+
+.sentry-nav-text {
+    color: greenyellow !important;
+    font-weight: 500;
 }

@@ -6,16 +6,16 @@
             </a>
             <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
                 <span class="logo-img"></span>
-                <span class="navbar-title">Sentry</span> <span class="navbar-version">{{version}}</span>
-            </a>   
+                <span class="navbar-title">Sentry Backoffice</span> <span class="navbar-version">{{version}}</span>
+            </a>
         </div>
         <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
             <ul class="navbar-nav ml-auto">
                 <li *ngSwitchCase="true">
-                    <span *ngIf="account" class="navbar-text">Hi {{account.firstName}}!</span>
+                    <span *ngIf="account" class="sentry-nav-text navbar-text">Hi {{account.firstName}}!</span>
                 </li>
                 <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+                    <a class="sentry-nav-link nav-link" routerLink="/" (click)="collapseNavbar()">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span>Home</span>
                     </a>
@@ -44,15 +44,15 @@
                             <span >Expense</span>
                         </a>
                     </li> -->
-                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-                    <!-- </ul>
+                <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                <!-- </ul>
                 </li> -->
                 <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer">
-                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
+                    <a class="sentry-nav-link nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                         <span>
                             <i class="fa fa-user-plus" aria-hidden="true"></i>
                             <span>Administration</span>
-                            <b class="caret"></b>
+                        <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
@@ -108,15 +108,15 @@
                     </ul>
                 </li>
                 <li ngbDropdown class="nav-item dropdown pointer">
-                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
-                      <span *ngIf="!getImageUrl()">
+                    <a class="sentry-nav-link nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
+                        <span *ngIf="!getImageUrl()">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span>
                           Account
                         </span>
                         <b class="caret"></b>
-                      </span>
-                      <span *ngIf="getImageUrl()">
+                        </span>
+                        <span *ngIf="getImageUrl()">
                           <img [src]="getImageUrl()" class="profile-image img-circle" alt="Avatar">
                       </span>
                     </a>

@@ -7,65 +7,55 @@
     </h2>
     <jhi-alert></jhi-alert>
     <div class="table-responsive" *ngIf="users">
-        <table class="table table-striped">
+        <table class="sentry-table table table-striped">
             <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>ID</span><span class="fa fa-sort"></span></th>
-                <th jhiSortBy="login"><span>Login</span> <span class="fa fa-sort"></span></th>
-                <th jhiSortBy="email"><span>Email</span> <span class="fa fa-sort"></span></th>
-                <th></th>
-                <th><span>Profiles</span></th>
-                <th jhiSortBy="createdDate"><span>Created Date</span> <span class="fa fa-sort"></span></th>
-                <th jhiSortBy="lastModifiedBy"><span>Last Modified By</span> <span class="fa fa-sort"></span></th>
-                <th jhiSortBy="lastModifiedDate"><span>Last Modified Date</span> <span class="fa fa-sort"></span></th>
-                <th></th>
-            </tr>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th jhiSortBy="id"><span>ID</span><span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="login"><span>Login</span> <span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="email"><span>Email</span> <span class="fa fa-sort"></span></th>
+                    <th></th>
+                    <th><span>Profiles</span></th>
+                    <th jhiSortBy="createdDate"><span>Created Date</span> <span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="lastModifiedBy"><span>Last Modified By</span> <span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="lastModifiedDate"><span>Last Modified Date</span> <span class="fa fa-sort"></span></th>
+                    <th></th>
+                </tr>
             </thead>
-            <tbody *ngIf ="users">
-            <tr *ngFor="let user of users; trackBy: trackIdentity">
-                <td><a [routerLink]="['../user-management', user.login]">{{user.id}}</a></td>
-                <td>{{user.login}}</td>
-                <td>{{user.email}}</td>
-                <td>
-                    <span class="badge badge-danger hand" (click)="setActive(user, true)" *ngIf="!user.activated"
-                         >Deactivated</span>
-                    <span class="badge badge-success hand" (click)="setActive(user, false)" *ngIf="user.activated"
-                         >Activated</span>
-                </td>
-                
-                <td>
-                    <div *ngFor="let authority of user.authorities">
-                        <span class="tag tag-info">{{ authority }}</span>
-                    </div>
-                </td>
-                <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td>{{user.lastModifiedBy}}</td>
-                <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['../user-management', user.login]"
-                                class="btn btn-info btn-sm">
+            <tbody *ngIf="users">
+                <tr *ngFor="let user of users; trackBy: trackIdentity">
+                    <td><a [routerLink]="['../user-management', user.login]">{{user.id}}</a></td>
+                    <td>{{user.login}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <span class="badge badge-danger hand" (click)="setActive(user, true)" *ngIf="!user.activated">Deactivated</span>
+                        <span class="badge badge-success hand" (click)="setActive(user, false)" *ngIf="user.activated">Activated</span>
+                    </td>
+
+                    <td>
+                        <div *ngFor="let authority of user.authorities">
+                            <span class="tag tag-info">{{ authority }}</span>
+                        </div>
+                    </td>
+                    <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
+                    <td>{{user.lastModifiedBy}}</td>
+                    <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['../user-management', user.login]" class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
                             <span class="hidden-md-down">View</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/edit'} }]"
-                                replaceUrl="true"
-                                class="btn btn-primary btn-sm">
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="hidden-md-down">Edit</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/delete'} }]"
-                                replaceUrl="true"
-                                class="btn btn-danger btn-sm" [disabled]="currentAccount.login==user.login">
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/delete'} }]" replaceUrl="true" class="btn btn-danger btn-sm" [disabled]="currentAccount.login==user.login">
                             <span class="fa fa-remove"></span>
                             <span class="hidden-md-down">Delete</span>
                         </button>
-                    </div>
-                </td>
-            </tr>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
